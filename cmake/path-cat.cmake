@@ -1,0 +1,8 @@
+function(concat_path_to_list path list_var return_var)
+    set(result_list "")
+    foreach(file ${${list_var}})
+        list(APPEND result_list "${path}/${file}")
+    endforeach()
+    set(${list_var} ${result_list} PARENT_SCOPE)
+    set(${return_var} ${result_list} PARENT_SCOPE)
+endfunction()
