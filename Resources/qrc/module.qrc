@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/forward/ui">
+        <file alias="WindowsTitleBar.qml">../../Module/WindowsTitleBar.qml</file>
+        <file alias="ChatTitleBar.qml">../../Module/ChatTitleBar.qml</file>
+
+        <file alias="DisplayUser.qml">../../Module/DisplayUser.qml</file>
+        <file alias="MessageContainer.qml">../../Module/MessageContainer.qml</file>
+        <file alias="MessageItem.qml">../../Module/MessageItem.qml</file>
+    </qresource>
+</RCC>
