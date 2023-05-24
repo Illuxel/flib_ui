@@ -1,31 +1,37 @@
 set(FLUI_COMPONENTS
-    Forward/Module/WindowsTitleBar.qml
-    Forward/Module/ChatTitleBar.qml
-    Forward/Module/MessageItem.qml
-    Forward/Module/MessageContainer.qml
 )
 set(FLUI_SOURCE 
-    Forward/Source/MessageContainerLogic.cpp
-    Forward/Source/MessageContainerLogic.hpp
-    Forward/Source/WindowsTitleBar.cpp
-    Forward/Source/WindowsTitleBar.hpp
+    forward/ui/src/AppStyle.cpp
+    forward/ui/src/AppStyle.hpp
+    forward/ui/src/TitleBarElement.cpp
+    forward/ui/src/TitleBarElement.hpp
+)
+set(FLUI_RESOURCES
+    qrc/module.qrc
 )
 
-qt6_add_qml_module(Forward.UI URI Forward.UI VERSION 0.1
-RESOURCE_PREFIX 
+qt_add_library(Forward.UI STATIC
+    ${FLUI_RESOURCES}
+)
+qt_add_qml_module(Forward.UI 
+URI Forward.UI 
+VERSION 1.0
+RESOURCE_PREFIX
     "/forward/ui"
-QML_FILES 
-    ${FLUI_COMPONENTS}
-SOURCES 
+SOURCES
     ${FLUI_SOURCE}
-RESOURCES 
-    "Resources/qrc/module.qrc"
-STATIC
 NO_PLUGIN
 )
 
 target_include_directories(Forward.UI 
 PUBLIC 
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Forward/Source>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Forward/Source>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/forward/ui/src>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/forward/ui/src>
+)
+target_link_libraries(Forward.UI 
+PUBLIC 
+    Qt6::Core
+    Qt6::Quick
+    Qt6::Qml
+    Qt6::QuickControls2
 )
