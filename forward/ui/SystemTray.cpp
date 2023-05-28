@@ -79,7 +79,7 @@ void SystemTray::hideTrayIcon()
     sys_tray_->hide();
 }
 
-void SystemTray::showMessage(const QString& title, const QString& msg, int millisecondsTimeoutHint) const 
+void SystemTray::showMessage(const QString& title, const QString& msg, int millisecondsTimeoutHint) 
 {
     sys_tray_->showMessage(title, msg, QIcon(msg_icon_source_), millisecondsTimeoutHint);
 }

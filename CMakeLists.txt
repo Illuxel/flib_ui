@@ -22,8 +22,10 @@ foreach(dir_file file_name IN ZIP_LISTS FLUI_QML_SOURCE FLUI_QML_FILES)
 endforeach()
 
 set(FLUI_SOURCE 
-    forward/ui/AppStyle.cpp
-    forward/ui/AppStyle.hpp
+    forward/ui/Style.cpp
+    forward/ui/Style.hpp
+    forward/ui/Localisation.cpp
+    forward/ui/Localisation.hpp
     forward/ui/CursorPosition.hpp
     forward/ui/SystemTray.cpp
     forward/ui/SystemTray.hpp

@@ -1,7 +1,7 @@
 import QtQuick
-import forward.ui as Forward
+import forward.ui as Fl
 
-Forward.TrayMenuWrapper {
+Fl.TrayMenuWrapper {
     default property list<QtObject> items
     menuItems: items
 }
