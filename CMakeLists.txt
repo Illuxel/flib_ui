@@ -1,9 +1,11 @@
+cmake_minimum_required(VERSION 3.24 FATAL_ERROR)
+
 qt6_add_library(ForwardUILib STATIC)
 
 message(STATUS "Building Forward.UI.Lib")
 
 set_target_properties(ForwardUILib PROPERTIES AUTOMOC ON)
-target_link_libraries(ForwardUILib PUBLIC Qt6::Gui Qt6::Qml Qt6::Quick)
+target_link_libraries(ForwardUILib PUBLIC Qt6::Widgets Qt6::Gui Qt6::Qml Qt6::Quick)
 target_include_directories(ForwardUILib
     PUBLIC 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/forward/source>
@@ -18,10 +20,6 @@ set(FLUI_QML_SOURCE
 )
 
 set(FLUI_SOURCE 
-    forward/source/Style.cpp
-    forward/source/Style.hpp
-    forward/source/Localisation.cpp
-    forward/source/Localisation.hpp
     forward/source/CursorPosition.hpp
     forward/source/SystemTray.cpp
     forward/source/SystemTray.hpp
