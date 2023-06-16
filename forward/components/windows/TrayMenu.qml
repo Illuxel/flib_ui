@@ -1,4 +1,5 @@
 import QtQuick
+
 import forward.ui as Fl
 
 Fl.TrayMenuWrapper {

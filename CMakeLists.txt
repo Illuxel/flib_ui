@@ -14,7 +14,10 @@ target_include_directories(ForwardUILib
 
 set(FLUI_QML_SOURCE
     forward/components/ChatList.qml
+    forward/components/ChatListItem.qml
+    forward/components/MessageList.qml
     forward/components/MessageItem.qml
+    
     forward/components/windows/TitleBar.qml
     forward/components/windows/TrayMenu.qml
 )
