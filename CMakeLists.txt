@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.24 FATAL_ERROR)
 
+if (NOT DEFINED CMAKE_INSTALL_LIBDIR)
+  set(CMAKE_INSTALL_LIBDIR "lib")
+endif()
+if (NOT DEFINED CMAKE_INSTALL_BINDIR)
+  set(CMAKE_INSTALL_BINDIR "bin")
+endif()
+if (NOT DEFINED CMAKE_INSTALL_INCLUDEDIR)
+  set(CMAKE_INSTALL_INCLUDEDIR "include")
+endif()
+
 qt6_add_library(ForwardUILib STATIC)
 
 message(STATUS "Building Forward.UI.Lib")
@@ -17,6 +27,10 @@ set(FLUI_QML_SOURCE
     forward/components/ChatListItem.qml
     forward/components/MessageList.qml
     forward/components/MessageItem.qml
+
+    forward/components/DialogInfo.qml
+    forward/components/DialogInput.qml
+    forward/components/DialogConfirm.qml
     
     forward/components/windows/TitleBar.qml
     forward/components/windows/TrayMenu.qml
