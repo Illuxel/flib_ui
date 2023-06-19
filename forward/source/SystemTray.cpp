@@ -83,3 +83,7 @@ void SystemTray::showMessage(const QString& title, const QString& msg, int milli
 {
     sys_tray_->showMessage(title, msg, QIcon(msg_icon_source_), millisecondsTimeoutHint);
 }
+void SystemTray::showMessage(const QString& title, const QString& msg, const QIcon& ico, int millisecondsTimeoutHint)
+{
+    sys_tray_->showMessage(title, msg, ico, millisecondsTimeoutHint);
+}

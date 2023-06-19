@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE void hideTrayIcon();
 
     Q_INVOKABLE void showMessage(const QString& title, const QString& msg, int millisecondsTimeoutHint = 10000);
+    Q_INVOKABLE void showMessage(const QString& title, const QString& msg, const QIcon& ico, int millisecondsTimeoutHint = 10000);
 
 signals: 
     void trayContext();
