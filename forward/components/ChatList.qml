@@ -9,17 +9,12 @@ ListView {
 
     focus: true
 
+    signal itemClicked(int index)
+
     delegate: ItemDelegate {
-        id: chatItem
 
         width: chatList.width
         height: row.implicitHeight
-
-        // background: Rectangle {
-        //     color: chatItem.down ? "#d6d6d6" : "#f6f6f6"
-        //     border.color: "#26282a"
-        //     border.width: 2
-        // }
 
         RowLayout {
             id: row
@@ -29,29 +24,57 @@ ListView {
 
             Image { 
                 id: avatar
-                fillMode: Image.PreserveAspectFit
+
+                width: 64
+                height: 64
+
                 source: userAvatar 
 
+                fillMode: Image.PreserveAspectFit
+
+                Layout.minimumWidth: 64
+                Layout.margins: 5
                 Layout.fillHeight: true
-                Layout.alignment: Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             }
 
             ColumnLayout {
                 id: column
                 spacing: 2
 
+                Layout.rightMargin: 6
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 
-                Label { 
-                    text: userName 
+                RowLayout {
+                    spacing: 0
+
                     Layout.fillWidth: true
+
+                    Label { 
+                        clip: true
+                        text: userName 
+                        elide: Text.ElideRight
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignLeft
+                    }
+                    Label { 
+                        text: timestamp
+                        Layout.alignment: Qt.AlignRight
+                    }
                 }
+
                 Label { 
-                    text: lastMessage 
+                    clip: true
+                    text: lastMessage
+                    elide: Text.ElideRight
                     Layout.fillWidth: true
                 }
             }
+        }
+
+        onClicked: { 
+            itemClicked(index)
         }
     }
 }

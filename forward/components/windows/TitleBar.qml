@@ -15,14 +15,16 @@ Item {
     signal closeBtnClicked()
 
     property var border
+
     property Item contentItem
 
     property alias icon: icon.source
     property alias title: label.text
 
     ToolBar {
-        anchors.fill: parent
+        id: toolBar
 
+        anchors.fill: parent
         anchors.topMargin: border
         anchors.leftMargin: border
         anchors.rightMargin: border

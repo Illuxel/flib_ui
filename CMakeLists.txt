@@ -24,17 +24,26 @@ target_include_directories(ForwardUILib
 
 set(FLUI_QML_SOURCE
     forward/components/ChatList.qml
-    forward/components/ChatListItem.qml
     forward/components/MessageList.qml
     forward/components/MessageItem.qml
 
     forward/components/DialogInfo.qml
-    forward/components/DialogInput.qml
     forward/components/DialogConfirm.qml
     
     forward/components/windows/TitleBar.qml
     forward/components/windows/TrayMenu.qml
 )
+
+remove_path_from_list(FLUI_QML_SOURCE "forward/components" UI_QML_FILES)
+
+# Registering RESOURCE_ALIAS for qml files
+
+foreach(dir_file file_name IN ZIP_LISTS FLUI_QML_SOURCE UI_QML_FILES)
+    set_source_files_properties(${dir_file} 
+        PROPERTIES 
+            QT_RESOURCE_ALIAS ${file_name}
+    )
+endforeach()
 
 set(FLUI_SOURCE 
     forward/source/CursorPosition.hpp
